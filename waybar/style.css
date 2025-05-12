@@ -1,0 +1,196 @@
+@define-color fg #3d474e;
+@define-color bgc rgba(0, 0, 0, 0);
+@define-color bg rgba(50, 50, 50, 0.7);
+@define-color bordercolor #8EB69B;
+@define-color highlight #808080;
+@define-color disabled #A5A5A5;
+@define-color alert #E67E80;
+@define-color activegreen #26A65B;
+
+* {
+  min-height: 0;
+  font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+}
+
+#waybar {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+#waybar .module { 
+  padding: 0px 15px;  
+  padding-left: 10px;
+  background-color: rgba(50, 50, 50, 0.5); 
+  transition: background-color 0.3s ease; 
+}
+#waybar .module:hover {
+  color: @bg
+}
+
+button {
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+  /* Avoid rounded borders under each button name */
+  border: none;
+  padding: 0px 5px;
+  margin: 5px 0px;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+  background: inherit;
+  box-shadow: inset 0 -3px transparent;
+}
+#workspaces button {
+  animation: gradient_f 15s ease-in infinite;
+  color: @highlight;
+}
+
+#workspaces button.urgent {
+  color: @alert;
+}
+#workspaces button.empty {
+  color: @bordercolor;
+}
+
+#workspaces button.active {
+  color: @disable;
+  padding: 2px;
+  margin: 2px;
+  animation: gradient_f 15s ease-in infinite;
+  transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.5s ease-in;
+  background-color: transparent;
+  border-radius: 25px;
+
+}
+
+/*River Tags/Workspaces*/
+#tags {
+  background-color: transparent;
+  border-radius: 0px;
+  padding: 0px 5px;
+}
+
+#tags button {
+  color: @bordercolor;
+  background: @bg;
+
+  /*If you need round border icons*/
+  border-radius: 0px;
+  padding: 0px 0px;
+  margin: 5px 0px;
+}
+
+#tags button.occupied {
+  color: @fg;
+}
+
+#tags button.focused {
+  color: @highlight;
+}
+
+#tags button.urgent {
+  color: @alert;
+}
+
+#privacy,
+#battery,
+#cpu,
+#memory,
+#custom-launcher,
+#disk,
+#temperature,
+#language,
+#backlight,
+#backlight-slider,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#tray menu,
+#tray > .needs-attention,
+#tray > .passive,
+#tray > .active,
+#mode,
+#scratchpad,
+#custom-notification,
+#custom-wifi,
+#custom-kdeconnect,
+#custom-bluetooth,
+#custom-power,
+#custom-separator,
+#idle_inhibitor,
+#window {
+  color: @bordercolor; 
+  background-color: @bgc;
+  padding: 0px 5px;
+}
+
+#custom-notification,
+#custom-kdeconnect,
+#custom-bluetooth,
+#custom-power,
+#idle_inhibitor {
+  color: @bordercolor;
+  background-color: @bgc;
+}
+
+#clock,
+#cava,
+#clock,
+#custom-group2 {
+  margin: 0 5px;
+  border: 0.3px solid gray;
+  /*border-radius: 25px;*/
+  color: @bordercolor;
+  background-color: @bgc;
+}
+
+#workspaces {
+  color: @bg;
+  margin: 0 5px;
+  border: 0.3px solid gray;
+  border-radius: 15px;
+}
+#custom-separator {
+  color: @disabled;
+}
+
+#custom-power {
+  color: @alert;
+}
+
+#tray {
+  /*background-color: @bordercolor;*/
+  border: 1px solid @bordercolor;
+  margin: 5px;
+  padding: 0px 15px;
+  border-radius: 5px;
+}
+
+#network.disconnected,
+#pulseaudio.muted,
+#wireplumber.muted {
+  color: @alert;
+}
+
+#battery.charging,
+#battery.plugged {
+ color: @bordercolor;
+}
+
+label:focus {
+  background-color: @bg;
+}
+
+#battery.critical:not(.charging) {
+  background-color: @bordercolor;
+  color: @fg;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
