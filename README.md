@@ -1,2 +1,2 @@
 # Waybar
-Waybar caotic
+We present a simple waybar, it doesn't have too much code in its structurs style.css, I usually change the configuration of my bipolarity too much, justifying that this is my defect, we have few modules, the configuration is the most absurd, on the left, side we present the modules brightness, pulseaudio, wifi, cellar, notifications, mpris, time, 
